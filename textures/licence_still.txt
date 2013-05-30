@@ -1,0 +1,9 @@
+#1		Claude Monet 	La Femme à l'ombrelle 		public domain
+#2		Casimir 		minetestscreenshot 			cc-by-sa
+#3&4	Kano Eitoku 	Cypress Tree 				public domain
+#5		c55 			Mese 						cc-by-sa
+#6&7	Guido Bos 		Frogatto Tile Art			cc0
+#8		surt			Classical Temple Tiles		cc-by-sa
+#9		Sam Hocevar		Awesome						WTFPL
+#10		erlehmann		oerkki1 (Omsk-bird)			GPL cc-by-sa
+#11		erlehmann		oerkki1_damaged (Omsk-bird)	GPL cc-by-sa
