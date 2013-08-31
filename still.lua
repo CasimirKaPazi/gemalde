@@ -215,6 +215,7 @@ minetest.register_craft({
 		}
 })
 
+--[[
 minetest.register_abm({
     nodenames = {"group:picture"},
 	interval = 5,
@@ -238,3 +239,4 @@ minetest.register_abm({
 		end
 	end,
 })
+--]]

@@ -5,8 +5,8 @@ local default_time	= 0.25
 -- Extra
 --	For other numbers of frames use the following. x is the paintings number. a is the frames count. b the time per frame.
 local frames = {
---	{x, a, b}
-	{1, 16, 0.125} -- 16 frames for the first animated painting
+--	{x, a, b},
+	{1, 16, 0.125}, -- 16 frames for the first animated painting
 }
 
 
@@ -253,6 +253,7 @@ minetest.register_craft({
 		}
 })
 
+--[[
 minetest.register_abm({
     nodenames = {"group:animated_picture"},
 	interval = 5,
@@ -276,3 +277,4 @@ minetest.register_abm({
 		end
 	end,
 })
+--]]
