@@ -8,20 +8,21 @@ local frames = {
 --	{2, 1.0}, -- Example. Speed of 1.0 for the second animated painting.
 }
 
+local mesecons_picture_path = minetest.get_modpath(minetest.get_current_modname()) .."/textures"
+
 -- Count the number of pictures.
-local function get_picture(number)
-	local filename	= minetest.get_modpath("gemalde").."/textures/gemalde_animated_"..number..".png"
-	local file		= io.open(filename, "r")
-	if file ~= nil then io.close(file) return true else return false end
+pictures_in_folder = minetest.get_dir_list(mesecons_picture_path)
+
+
+picture_list = {}
+
+for _,picture in ipairs(pictures_in_folder) do
+	if string.find(picture, "_animated.png") then
+		picture_list[#picture_list+1] = picture
+	end
 end
 
-local N = 1
-
-while get_picture(N) == true do
-	N = N + 1
-end
-
-N = N - 1
+N = #picture_list
 
 -- register for each picture
 for n=1, N do
@@ -45,7 +46,7 @@ minetest.register_node("gemalde:node_animated_"..n.."", {
 	drawtype = "signlike",
 	tiles = {
 		{
-			image="gemalde_animated_"..n..".png",
+			image=picture_list[n],
 			animation={type="vertical_frames", length=frames_speed}
 		},
 	},

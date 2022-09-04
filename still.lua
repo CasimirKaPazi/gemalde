@@ -1,17 +1,18 @@
+local mesecons_picture_path = minetest.get_modpath(minetest.get_current_modname()) .."/textures"
+
+
 -- Count the number of pictures.
-local function get_picture(number)
-	local filename	= minetest.get_modpath("gemalde").."/textures/gemalde_"..number..".png"
-	local file		= io.open(filename, "r")
-	if file ~= nil then io.close(file) return true else return false end
+pictures_in_folder = minetest.get_dir_list(mesecons_picture_path)
+
+picture_list = {}
+
+for _,picture in ipairs(pictures_in_folder) do
+	if string.find(picture, "_still.png") then
+		picture_list[#picture_list+1] = picture
+	end
 end
 
-local N = 1
-
-while get_picture(N) == true do
-	N = N + 1
-end
-
-N = N - 1
+N = #picture_list
 
 -- register for each picture
 for n=1, N do
@@ -25,7 +26,7 @@ end
 minetest.register_node("gemalde:node_"..n.."", {
 	description = "Picture #"..n.."",
 	drawtype = "signlike",
-	tiles = {"gemalde_"..n..".png"},
+	tiles = {picture_list[n]},
 	visual_scale = 3.0,
 	inventory_image = "gemalde_node.png",
 	wield_image = "gemalde_node.png",
