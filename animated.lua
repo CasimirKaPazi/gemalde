@@ -22,7 +22,7 @@ for _,picture in ipairs(pictures_in_folder) do
 	end
 end
 
-N = #picture_list
+local N = #picture_list
 
 -- register for each picture
 for n=1, N do
